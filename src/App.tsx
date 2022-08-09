@@ -5,7 +5,7 @@ import OptionsBar from './components/Options/Options'
 
 function App() {
   return (
-    <div className='pl-3.5 pr-3.5 pt-3.5 bg-zinc-900 min-h-screen'>
+    <div className='pl-3.5 pr-3.5 pt-3.5 bg-zinc-900 min-h-screen pb-5'>
       <div className='mb-5'>
         <SearchBar />
       </div>

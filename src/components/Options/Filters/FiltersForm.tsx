@@ -19,6 +19,7 @@ const date = [
 const FiltersForm = () => {
     const [selected, setSelected] = useState(date[0])
     const dispatch = useAppDispatch()
+    const text = 'Choose Platform'
 
     const clickHandler = (e: IOptions) => {
         if (selected.id !== e.id) {
@@ -29,7 +30,7 @@ const FiltersForm = () => {
 
     return (
         <div className='w-40 mr-10'>
-            <OptionTemplate selected={selected} clickHandler={clickHandler} date={date} />
+            <OptionTemplate text={text} selected={selected} clickHandler={clickHandler} date={date} />
         </div>
     )
 }

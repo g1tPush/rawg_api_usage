@@ -13,6 +13,7 @@ const date = [
 const SortForm = () => {
     const [selected, setSelected] = useState(date[0])
     const dispatch = useAppDispatch()
+    const text = 'Order By'
 
     const clickHandler = (e: IOptions) => {
         if (selected.id !== e.id) {
@@ -23,7 +24,7 @@ const SortForm = () => {
 
     return (
         <div className='w-36 mr-10'>
-            <OptionTemplate selected={selected} clickHandler={clickHandler} date={date} />
+            <OptionTemplate text={text} selected={selected} clickHandler={clickHandler} date={date} />
         </div>
     )
 }

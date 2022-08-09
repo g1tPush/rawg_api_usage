@@ -47,7 +47,7 @@ const Games = () => {
                     })
                 }
             </div>
-            <div className='text-center text-3xl font-bold mt-5 mb-5 text-white'>{gamesState.entities && gamesState.status ? 'Nothing Found' : null}</div>
+            <div className='text-center text-3xl font-bold mt-5 mb-5 text-white'>{gamesState.entities.length === 0 && gamesState.status ? 'Nothing Found' : null}</div>
 
             <div className='text-center text-3xl font-bold mt-5 mb-5 text-white'>{!gamesState.status ? 'Loading...' : null}</div>
         </>

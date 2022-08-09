@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { IOptions } from '../../types/types'
@@ -7,14 +7,14 @@ const classNames = (...classes: string[]) => {
     return classes.filter(Boolean).join(' ')
 }
 
-const OptionTemplate = (props: {selected: IOptions, date: IOptions[], clickHandler: (e: IOptions) => void}) => {
-    const {selected, clickHandler, date} = props
+const OptionTemplate = (props: {text:string, selected: IOptions, date: IOptions[], clickHandler: (e: IOptions) => void}) => {
+    const {text, selected, clickHandler, date} = props
     
     return (
         <Listbox value={selected} onChange={clickHandler}>
             {({ open }) => (
                 <>
-                    <Listbox.Label className="block text-sm font-medium text-white">Chose Platform</Listbox.Label>
+                    <Listbox.Label className="block text-sm font-medium text-white">{text}</Listbox.Label>
                     <div className="mt-1 relative">
                         <Listbox.Button className="bg-zinc-800 relative w-full rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-zing-900 focus:border-zing-900 sm:text-sm">
                             <span className="block truncate text-white">{selected.name}</span>
