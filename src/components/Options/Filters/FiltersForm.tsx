@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { platform } from '../../../features/orginizer/counterSlice'
-import { useAppDispatch } from '../../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import OptionTemplate from '../OptionTemplate'
 import { IOptions } from '../../../types/types'
 
@@ -17,13 +16,13 @@ const date = [
 ]
 
 const FiltersForm = () => {
-    const [selected, setSelected] = useState(date[0])
+    const platformId = useAppSelector((state) => state.orginizer.platform)
+    const selected = date.filter((el) => el.id === platformId)[0]
     const dispatch = useAppDispatch()
     const text = 'Choose Platform'
 
     const clickHandler = (e: IOptions) => {
         if (selected.id !== e.id) {
-            setSelected(e)
             dispatch(platform(e.id))
         }
     }

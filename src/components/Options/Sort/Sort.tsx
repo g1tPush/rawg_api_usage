@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useAppDispatch } from '../../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { order } from '../../../features/orginizer/counterSlice'
 import OptionTemplate from '../OptionTemplate'
 import { IOptions } from '../../../types/types'
@@ -11,13 +10,13 @@ const date = [
 ]
 
 const SortForm = () => {
-    const [selected, setSelected] = useState(date[0])
+    const platformName = useAppSelector((state) => state.orginizer.orderBy)
+    const selected = date.filter((el) => el.name.toLowerCase() === platformName.toLowerCase())[0]
     const dispatch = useAppDispatch()
     const text = 'Order By'
 
     const clickHandler = (e: IOptions) => {
         if (selected.id !== e.id) {
-            setSelected(e)
             dispatch(order(e.name))
         }
     }

@@ -12,7 +12,7 @@ export interface Ientities {
 
 export interface OrginizerState {
     orderBy: string,
-    platform: number | null,
+    platform: number,
     status: boolean,
     entities: Ientities[],
     next: string | null,

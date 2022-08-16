@@ -78,7 +78,7 @@ const parse = (res: GameApi) => {
 
 const initialState: OrginizerState = {
     orderBy: 'default',
-    platform: null,
+    platform: 0,
     status: false,
     entities: [],
     next: null,
